@@ -308,7 +308,7 @@ nav > .menuicon {
 .mobimenu {
   position: absolute;
   right: 0;
-  top: 0px;
+  top: 70px;
   width: 0;
   opacity: 0;
   height: 100vh;
@@ -318,7 +318,7 @@ nav > .menuicon {
 }
 @media only screen and (max-width: 767px) {
   .mobimenu {
-top: 70px;
+top:0;
   }
 }
 
