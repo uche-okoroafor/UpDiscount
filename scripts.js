@@ -17,10 +17,10 @@ function scrollFunction() {
     function myFunc(x) {
       if (x.matches) {
         // If media query matches
-        document.getElementById("scrollinbar").style.height = "60px";
+        document.getElementById("scrollinbar").style.height = "50px";
       } else {
         {
-          document.getElementById("scrollinbar").style.height = "80px";
+          document.getElementById("scrollinbar").style.height ="70px";
         }
       }
     }
