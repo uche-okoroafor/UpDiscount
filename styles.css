@@ -1,819 +1,2278 @@
-html {
-  scroll-behavior: smooth;
-}
-:root {
-  --main-white: #ffffff;
-  --main-red: #a6252c;
-  --main-blue: #586365;
-  --main-font: #586365;
-  --main-green3: #123807;
-  --main-green: #007837;
-  --main-green2: #06522b;
-  --main-whiteb: #ffffff;
-  --main-graybb: #f1f2f3;
-}
-* {
-  box-sizing: border-box;
-}
-body {
-  background-color: #f7f7fa;
-  padding: 0;
-  margin: 0;
-  color: var(--main-blue);
-  font-family: "PT Sans", sans-serif;
-}
-.nav {
-  box-shadow: 2px 5px 11px 3px rgba(0, 0, 0, 0.2);
-  height: auto;
-  white-space: nowrap;
-  border-bottom: 3px solid var(--main-green);
-}
-.navbar {
-  margin: 0px auto;
-  background: var(--main-whiteb);
-}
-
-.navbar nav {
-  display: flex;
-  height: auto;
-  margin: 0;
-}
-.navbar img,
-.scrollinbar > img {
-  margin: 10px 10px 0px 10px;
-}
-@media only screen and (max-width: 767px) {
-  .scrollinbar img {
-    max-width: 180px;
-    height: 55px;
-    margin: 2px 10px 0px 2px;
-  }
-  .navbar img {
-    max-height: 300px;
-  }
-}
-
-.navbar ul {
-  display: flex;
-  margin-left: auto;
-  margin-top: 0;
-}
-@media only screen and (max-width: 767px) {
-  .navbar ul {
-    display: none;
-  }
-}
-
-.navbar li {
-  margin: 0px 18px;
-  font-size: 16px;
-  margin-top: 10px;
-
-  list-style-type: none;
-}
-.navbar li a {
-  padding: 7px 10px;
-}
-
-.navbar li a:hover {
-  border-radius: 3px;
-  color: var(--main-white);
-  background-color: var(--main-green);
-}
-.navbar li:hover {
-  border-radius: 3px;
-}
-
-.navbar a,
-.items a,
-.itemimages a,
-footer a {
-  text-decoration: none;
-  color: inherit;
-}
-a:hover {
-  color: #7094db;
-}
-.items {
-  background: var(--main-whiteb);
-  height: 50px;
-}
-@media only screen and (max-width: 767px) {
-  .items {
-    display: none;
-  }
-}
-
-.items ul {
-  position: relative;
-  top: 12px;
-  margin: 0;
-  padding-left: 10px;
-}
-.items li {
-  font-weight: bold;
-  list-style-type: none;
-  display: inline;
-  padding: 10px 15px;
-}
-
-.items li a:hover {
-  background-color: var(--main-green);
-  border-radius: 3px;
-  color: var(--main-white);
-}
-.items li:hover {
-  background-color: var(--main-green);
-  border-radius: 3px;
-  color: var(--main-white);
-}
-
-.searchbar {
-  height: 70px;
-  background: var(--main-graybb);
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
-
-.searchbar > button {
-  margin-top: 20px;
-  text-align: left;
-  border-radius: 3px;
-  width: 60%;
-  height: 37px;
-  cursor: pointer;
-  color: #d7e2f0;
-  font-size: 20px;
-  border: 2px solid var(--main-green);
-  background-color: var(--main-white);
-  margin-left: 20px;
-  vertical-align: middle;
-}
-@media only screen and (max-width: 767px) {
-  .searchbar > button {
-    width: 80%;
-    margin-left: 10px;
-  }
-}
-
-.searchbar button span {
-  position: relative;
-  top: 4px;
-}
-
-.Checkout {
-  display: inline-block;
-  max-width: 300px;
-  text-align: right;
-  margin-right: 30px;
-}
-@media only screen and (max-width: 767px) {
-  .Checkout {
-    margin-right: 10px;
-    margin-left: 18px;
-  }
-}
-
-.Checkout p {
-  margin-top: 25px;
-  position: relative;
-  bottom: 0px;
-}
-
-.Checkout p a {
-  padding: 15px;
-  background: var(--main-green);
-  border-radius: 5px;
-  text-decoration: none;
-  color: var(--main-white);
-}
-
-@media only screen and (max-width: 767px) {
-  .Checkout p a {
-    padding: 8px;
-  }
-}
-
-.Checkout p a:hover {
-  background: var(--main-green2);
-}
-
-.scrobutton > button {
-  text-align: left;
-  border-radius: 3px;
-  width: 70%;
-  height: 37px;
-  cursor: pointer;
-  color: #d7e2f0;
-  font-size: 20px;
-  display: block;
-  margin: 0 auto;
-  outline: none;
-  border: 2px solid var(--main-green);
-  background-color: var(--main-white);
-}
-
-@media only screen and (max-width: 767px) {
-  .scrobutton > button span {
-    display: none;
-    width: 80%;
-  }
-}
-
-.scrobutton {
-  display: inline;
-  flex-basis: 60%;
-}
-
-/* menuicon*/
-nav > .menuicon {
-  margin-top: 20px;
-  margin-right: 20px;
-}
-@media only screen and (min-width: 767px) {
-  nav > .menuicon {
-    display: none;
-  }
-}
-
-.menuicon {
-  display: inline-block;
-  cursor: pointer;
-  margin-left: auto;
-  margin-right: 20px;
-}
-
-.bar1,
-.bar2,
-.bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: #333;
-  margin: 6px 0;
-  transition: 0.4s;
-  border-radius: 20px;
-}
-
-.change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
-}
-
-.change .bar2 {
-  opacity: 0;
-}
-
-.change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-8px, -8px);
-  transform: rotate(45deg) translate(-8px, -8px);
-}
-.closemenubar {
-  position: fixed;
-  z-index: 800;
-  background: rgba(0, 0, 0, 0.7);
-  display: none;
-  height: 100%;
-  width: 100%;
-  top: 80px;
-}
-
-.mobimenu {
-  position: absolute;
-  right: 0;
-  top: 75px;
-  width: 0;
-  opacity: 0;
-  height: 100vh;
-  background-color: #f7f7fa;
-  z-index: 1000;
-  position: fixed;
-}
-
-.mobimenu ul {
-  flex-flow: column nowrap;
-  justify-content: center;
-}
-.mobimenu li {
-  margin: 0px 20px;
-  font-size: 20px;
-  padding: 18px;
-  list-style-type: none;
-  transition: 0.5s;
-}
-.mobimenu a {
-  text-decoration: none;
-  color: inherit;
-}
-.mobimenu li:hover {
-  background: var(--main-green);
-  color: #121e29;
-  transition: 0.5s;
-  text-shadow: none;
-}
-
-.scrollinbar button img,
-.searchbar button img {
-  width: 30px;
-  height: 30px;
-  float: right;
-}
-
-.searchbar > button:hover {
-  color: #7094db;
-  outline-color: #7094db;
-}
-.scrollinbar {
-  height: 0;
-  align-items: center;
-  background-color: inherit;
-  overflow-y: hidden;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  transition: all 0.5s;
-  display: flex;
-  z-index: 250;
-}
-
-/*modal*/
-
-.modal {
-  display: none;
-  opacity: 1;
-  transition: opacity 0.5s;
-  position: fixed;
-  z-index: 100;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-  border-radius: 5px;
-}
-@media only screen and (max-width: 767px) {
-  .modal-content {
-    width: 80%;
-  }
-}
-.container {
-  right: 20px;
-  top: 15px;
-  font-size: 18px;
-  cursor: pointer;
-  color: var(--main-green);
-}
-
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.container .text {
-  font-size: 35px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.container form {
-  margin-top: -20px;
-}
-
-.container form .data {
-  height: 45px;
-  width: 100%;
-  margin: 40px 0;
-}
-
-form .data label {
-  font-size: 18px;
-}
-
-form .data input {
-  height: 100%;
-  width: 100%;
-  padding-left: 10px;
-  font-size: 17px;
-  border: 1px solid silver;
-  border-radius: 5px;
-}
-
-form .data input:focus {
-  border-color: var(--main-green);
-  border-bottom-width: 2px;
-  border-radius: 5px;
-}
-
-form .btn {
-  margin: 30px 0;
-  height: 45px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-form .btn .inner {
-  height: 100%;
-  width: 300%;
-  position: absolute;
-  left: -100%;
-  z-index: -1;
-  background: var(--main-blue);
-  transition: all 0.4s;
-}
-
-form .btn:hover .inner {
-  left: 0;
-}
-
-form .btn button {
-  height: 100%;
-  width: 100%;
-  background-color: var(--main-green);
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-form .btn button:hover {
-  background-color: var(--main-green2);
-  transition: background 0.5s;
-}
-
-/*slideshow*/
-.slidebody {
-  margin: 0;
-  font-family: sans-serif;
-  box-shadow: 2px 5px 11px 3px rgba(0, 0, 0, 0.4);
-}
-
-.home {
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-  max-height: 400px;
-}
-
-.home .slide {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-  display: none;
-  padding: 0 15px;
-  animation: slide 2s ease;
-}
-.home .slide.active {
-  display: flex;
-}
-@keyframes slide {
-  0% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.container {
-  max-width: 1170px;
-  margin: auto;
-}
-
-.home .container {
-  flex-grow: 1;
-}
-.home .caption {
-  width: 50%;
-}
-.home .caption h1 {
-  font-size: 42px;
-  color: inherit;
-  margin: 0;
-}
-.home .slide.active .caption h1 {
-  opacity: 0;
-  animation: captionText 0.5s ease forwards;
-  animation-delay: 1s;
-}
-.home .caption p {
-  font-size: 18px;
-  margin: 15px 0 30px;
-  color: #222222;
-}
-.home .slide.active .caption p {
-  opacity: 0;
-  animation: captionText 0.5s ease forwards;
-  animation-delay: 1.2s;
-}
-.home .caption a {
-  display: inline-block;
-  padding: 10px 30px;
-  background-color: var(--main-green);
-  text-decoration: none;
-  color: var(--main-white);
-  border-radius: 5px;
-}
-
-.home .caption a:hover {
-  background-color: var(--main-green2);
-}
-
-.home .slide.active .caption a {
-  opacity: 0;
-  animation: captionText 0.5s ease forwards;
-  animation-delay: 1.4s;
-}
-
-@keyframes captionText {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
-
-.home .controls .prev,
-.home .controls .next {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  height: 80px;
-  width: 50px;
-  margin-top: -20px;
-  color: #ffffff;
-  background-color: var(--main-green3);
-  opacity: 0.5;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 40px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.5s ease;
-  border-radius: 0 3px 3px 0;
-}
-
-.home .controls .next {
-  border-radius: 3px 0 0 3px;
-}
-
-.home .controls .prev span,
-.home .controls .next span {
-  display: block;
-  margin-top: 20px;
-  font-size: 40px;
-}
-
-.home .controls .prev:hover,
-.home .controls .next:hover {
-  background-color: var(--main-green);
-  opacity: 1;
-}
-.home .controls .prev {
-  left: 0;
-}
-.home .controls .next {
-  right: 0;
-}
-
-.home .indicator {
-  position: absolute;
-  left: 50%;
-  bottom: 30px;
-  z-index: 2;
-  transform: translateX(-50%);
-}
-
-.home .indicator div {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  color: #ff9f00;
-  background-color: var(--main-green);
-  border-radius: 50%;
-  text-align: center;
-  line-height: 25px;
-  margin: 0 3px;
-}
-
-.home .indicator div.active {
-  background-color: #000;
-}
-
-/*responsive*/
-@media (max-width: 767px) {
-  .controls {
-    display: none;
-  }
-}
-
-/*itemimages  */
-.headingh2 {
-  margin-left: 50px;
-  margin-bottom: 0px;
-  margin-top: 40px;
-}
-
-.hotsales {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 10px 50px;
-}
-
-@media (max-width: 767px) {
-  .hotsales {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-  }
-}
-
-.hotsalesdisplay {
-  margin: 20px;
-  background: white;
-  border: 1px light var(--main-blue);
-  border-radius: 5px;
-  box-shadow: 2px 5px 11px 3px rgba(0, 0, 0, 0.2);
-  flex: auto;
-  position: relative;
-  background: var(--main-green);
-  color: var(--main-white);
-}
-
-.hotsalesdisplay > a {
-  text-decoration: none;
-  color: var(--main-white);
-}
-
-.hotsalesdisplay .tags {
-  position: absolute;
-  border-radius: 5px;
-  padding: 10px;
-  background: var(--main-red);
-  right: 5px;
-  top: 5px;
-  color: var(--main-white);
-  -webkit-box-shadow: -6px 6px 19px -5px rgba(35, 8, 9, 0.63);
-  box-shadow: -6px 6px 19px -5px rgba(35, 8, 9, 0.63);
-}
-
-.hotsalesdisplay img {
-  width: 100%;
-  height: auto;
-}
-.hotsalesdisplay .align {
-  text-align: center;
-}
-.hotsalesdisplay .productsit {
-}
-.hotsalesdisplay .supermarkxt {
-}
-.hotsalesdisplay .locationx {
-}
-
-.itemimages {
-  margin: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-auto-rows: 370px;
-  grid-gap: 20px;
-}
-
-.imagedisplay .align {
-  text-align: center;
-}
-
-.imagedisplay {
-  background: white;
-  border: 1px light var(--main-blue);
-  /*overflow: hidden;*/
-  border-radius: 5px;
-  box-shadow: 2px 5px 11px 3px rgba(0, 0, 0, 0.2);
-  flex: auto;
-  position: relative;
-  background: var(--main-green);
-  color: var(--main-white);
-  font-size: 13px;
-}
-
-.imagedisplay .tags:hover {
-  background: red;
-  box-shadow: 2px 5px 11px 3px rgba(0, 0, 0, 0.4);
-}
-.imagedisplay img {
-  width: 100%;
-  height: auto;
-}
-
-.imagedisplay .tags {
-  position: absolute;
-  border-radius: 5px;
-  padding: 10px;
-  background: var(--main-red);
-  right: 5px;
-  top: 5px;
-  color: var(--main-white);
-  -webkit-box-shadow: -6px 6px 19px -5px rgba(35, 8, 9, 0.63);
-  box-shadow: -6px 6px 19px -5px rgba(35, 8, 9, 0.63);
-}
-
-#notfound {
-  display: none;
-  text-align: center;
-  font-size: 20px;
-}
-
-.arr {
-  border-top: 1px solid #e2e5f1;
-  background-color: var(--main-green);
-  height: 50px;
-  color: var(--main-white);
-}
-
-.arr span {
-  display: block;
-  margin: 20px 0 auto 50px;
-}
-
-footer li {
-  margin: 15px 5px;
-  font-size: 16px;
-
-  list-style-type: none;
-}
-
-.footer {
-  display: flex;
-  flex-flow: wrap;
-}
-.contacticons {
-  margin: 0 auto;
-  text-align: center;
-  flex-basis: 600px;
-  flex-shrink: 0;
-}
-@media only screen and (max-width: 1290px) {
-  .contacticons {
-    flex-basis: 400px;
-  }
-}
-
-.contacticons h3 {
-  margin-top: 70px;
-}
-@media only screen and (max-width: 1091px) {
-  .contacticons h3 {
-    margin-top: 0;
-  }
-  .contacticons {
-    margin-bottom: 30px;
-  }
-}
-
-.contacticons img {
-  margin: auto 5px;
-  max-width: 50px;
-  max-height: 50px;
-}
-
-.aboutus,
-.policies,
-.menus {
-  margin: 10px 30px;
-  flex: auto;
-}
-footer {
-  border-top: 1px solid #e2e5f1;
-  background-color: white;
-  white-space: nowrap;
-}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>UpDiscounts</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="styles.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
+</head>
+
+<body id="home">
+    <div class="nav">
+        <div class="navbar" id="navbar">
+            <nav>
+                <a href=""><img src="images\logo.png" alt=""></a>
+                <ul>
+                    <li><a href="#about"> About</a></li>
+                    <li><a href="#projects">Help</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+
+                <div class="menuicon" onclick="myFunction(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </nav>
+        </div>
+        <div class="items" id="items">
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="#MOBILES">MOBILES & GADGETS</a></li>
+                <li><a href="#FASHION">FASHION</a></li>
+                <li><a href="#ELECTRONICS">ELECTRONICS</a></li>
+                <li><a href="#GROCERY">GROCERY</a></li>
+                <li><a href="#SPORTS">SPORTS</a></li>
+            </ul>
+        </div>
+
+        <div class="searchbar" id="searchbar">
+            <button type="button" id="btnsearchopen"><span>find items...</span><i class="fas fa-search"></i> </button>
+
+            <div class="Checkout">
+                <p>Hot Sales &#10095; <a href="#hotsales">Checkout</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="scrollinbar" id="scrollinbar">
+        <a href="#home"><img src="images\logo.png" alt=""></a>
+        <div class="scrobutton">
+            <button type="button" id="btnsearchopen" onclick="showmodel()"> <span>find items...</span> <i class="fas fa-search"></i> </button>
+        </div>
+
+        <div class="menuicon" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </div>
+    <div class="closemenubar" onclick="closebar()">
+    </div>
+    <div class="mobimenu">
+        <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="#MOBILES" onclick="closebar()">MOBILES & GADGETS</a></li>
+            <li><a href="#FASHION" onclick="closebar()">FASHION</a></li>
+            <li><a href="#ELECTRONICS" onclick="closebar()">ELECTRONICS</a></li>
+            <li><a href="#GROCERY" onclick="closebar()">GROCERY</a></li>
+            <li><a href="#SPORTS" onclick="closebar()">SPORTS</a></li>
+        </ul>
+    </div>
+
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="container">
+                <div class="text">
+                    Find Items Here</div>
+                <form action="#">
+                    <div class="data">
+                        <label>Item</label>
+                        <input type="text" list="products" id="item" autocomplete="off">
+                    </div>
+
+                    <div class="data">
+                        <label>SuperMarket (Optional)</label>
+                        <input type="text" list="supermarkets" id="supermarket" autocomplete="off">
+                    </div>
+
+                    <div class="data">
+                        <label>Location (Optional)</label>
+                        <input type="text" list="locations" id="locationxc" autocomplete="off">
+                    </div>
+
+
+                    <div class="btn">
+                        <div class="inner">
+                        </div>
+                        <button type="submit" id="btnsearchclose" onclick="showsearch()">Find Item</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <section id="Data">
+        <datalist id="products">
+            <option value="Apple iPhone 11" />
+            <option value="Samsung Galaxy A21s 4GB RAM 64GB" />
+            <option value="Xiaomi Redmi 9 Prime Dual Sim 4GB RAM" />
+            <option value="Nokia 7.2 Single SIM Ice 6GB RAM 128GB 4G LTE" />
+            <option value="Nokia 6.2 Dual SIM Ceramic Black 64GB 4GB RAM 4G$2800" />
+            <option value="HUAWEI Y9 Prime Dual SIM Emerald Green 4GB RAM" />
+            <option value="HUAWEI P30 Pro Dual SIM Pearl White 8GB RAM 128G" />
+            <option value="Samsung Galaxy Note20 Dual SIM Mystic Bronze 8GB RAM" />
+            <option value="Apple iPhone 12 Mini 64GB 5G" />
+            <option value="Nokia 7.2 Single SIM Ice 6GB RAM 128GB 4G LTE" />
+            <option value="Nokia 6.2 Dual SIM Ceramic Black 64GB 4GB RAM 4G$2800" />
+            <option value="HUAWEI Y9 Prime Dual SIM Emerald Green 4GB RAM" />
+        </datalist>
+        <datalist id="locations">
+            <option value="Al Quoz 3" />
+            <option value="Jumira" />
+            <option value="Al Quoz 4" />
+            <option value="Al Quoz 2" />
+            <option value="Al Quoz 1" />
+            <option value="Deira" />
+            <option value="International City" />
+            <option value="Business Bay" />
+        </datalist>
+
+        <datalist id="supermarkets">
+            <option value="Shaklan Supermarket" />
+            <option value="Gift City Supermarket" />
+            <option value="Day By Day Supermarket" />
+            <option value="Sun City Supermarket" />
+        </datalist>
+    </section>
+
+
+    <!--slideshow-->
+
+
+
+
+    <section>
+        <div class="slidebody">
+
+            <section class="home">
+                <div class="slider">
+                    <div class="slide active"
+                        style="background-image: url('https://www.luluhypermarket.com/medias/1903x450-healthy-products.jpg?context=bWFzdGVyfHJvb3R8OTUzMjA3fGltYWdlL2pwZWd8aGI4L2hhNi85Nzg1OTA4NDk0MzY2LzE5MDN4NDUwICBoZWFsdGh5IHByb2R1Y3RzLmpwZ3wxMjZhOWRmMjQ1MTE0Yzc1ZjE5NWE0N2JlMmFhZDMzNWM1MmMwMTdjZTgzY2UzMWNlOWVjN2VmZDRjYmU2MWZm')">
+                        <div class="container">
+                            <div class="caption">
+                                <h1></h1>
+                                <p></p>
+                                <a href="">Check Out</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://shop.countdown.co.nz/content/f2125-hpc-castello.jpg')">
+                        <div class="container">
+                            <div class="caption">
+                                <h1>Compair Prices</h1>
+                                <p>Lorem ipsum dummy text goes here.</p>
+                                <a href="">Check Out</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://shop.countdown.co.nz/content/f2125-hpc-pav-2.jpg')">
+                        <div class="container">
+                            <div class="caption">
+                                <h1>Shop At Your Favourite SuperMarket</h1>
+                                <p>Lorem ipsum dummy text goes here.</p>
+                                <a href="">Check Out</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://shop.countdown.co.nz/content/f2120-hpc-christmas.jpg')">
+                        <div class="container">
+                            <div class="caption">
+                                <h1>ChrisMax Discounts</h1>
+                                <p>Lorem ipsum dummy text goes here.</p>
+                                <a href="">Check Out</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://shop.countdown.co.nz/content/f2125-hpc-christmas.jpg')">
+                        <div class="container">
+                            <div class="caption">
+                                <h1></h1>
+                                <p></p>
+                                <a href="">Check Out</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- controls  -->
+                <div class="controls">
+                    <div class="prev"><span>&#10094;</span></div>
+                    <div class="next"><span>&#10095;</span></div>
+                </div>
+
+                <!-- indicators -->
+                <div class="indicator">
+                </div>
+        </div>
+        <div class="headingh2" id="hotsales">
+            <h2>Hot Sales</h2>
+
+        </div>
+        <div class="hotsales" >
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602694523/N40032345V_1.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">TRENDYOL
+                            Cable Knit Sweater Stone</span>
+                        <span class="tags">80AED</span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#deaddead"><img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1604070549/N40032348V_1.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">TRENDYOL
+                            Cable Knit Sweater Stone</span>
+                        <span class="tags">80AED</span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1604152580/N40032351V_1.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">TRENDYOL
+                            Cable Knit Sweater Stone</span>
+                        <span class="tags">80AED</span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605814220/N41044065A_1.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">Apple iPhone 12 Pro - 128GB, 6.1-Inch, 5G</span>
+                        <span class="tags">AED 5,099.00 </span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605988773/N41233393A_1.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">Apple iPhone 12 Pro - 128GB, 6.1-Inch, 5G</span>
+                        <span class="tags">AED 5,099.00 </span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605814243/N41044064A_1.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">Apple iPhone 12 Pro - 128GB, 6.1-Inch, 5G</span>
+                        <span class="tags">AED 5,099.00 </span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605899181/N39770139A_1.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">Xiaomi
+                            Mi 1S Electric Scooter 108x114x43cm</span>
+                        <span class="tags">AED 1379</span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605899181/N39770139A_1.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">Xiaomi
+                            Mi 1S Electric Scooter 108x114x43cm</span>
+                        <span class="tags">AED 1379</span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605899181/N39770139A_1.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">Xiaomi
+                            Mi 1S Electric Scooter 108x114x43cm</span>
+                        <span class="tags">AED 1379</span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://www.techinn.com/f/13776/137769821/sony-ps5.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">PlayStation 5 Standard Edition Console</span>
+                        <span class="tags">3999AED</span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://www.techinn.com/f/13776/137769821/sony-ps5.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">PlayStation 5 Standard Edition Console</span>
+                        <span class="tags">3999AED</span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hotsalesdisplay">
+                <a href="#dead"><img src="https://www.techinn.com/f/13776/137769821/sony-ps5.jpg" alt="">
+                    <div class="align">
+                        <span class="productsit">PlayStation 5 Standard Edition Console</span>
+                        <span class="tags">3999AED</span><br />
+                        <span class="supermarkxt">Shaklan supermarket</span><br />
+                        <span class="locationx">Location : Al quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+
+
+        <div class="headingh2">
+            <h2>MOBILES</h2>
+        </div>
+        <div class="mobiles" id="MOBILES">
+            <div class="itemimages">
+
+                <div class="imagedisplay">
+                    <a href="#dead"><img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1603040742/N41233411A_1.jpg"
+                            alt="">
+                        <div class="align">
+                            <span class="productsit">Apple iPhone 11</span><br />
+                            <span class="tags">$1000</span>
+                            <span class="supermarkxt">Shaklan supermarket <i
+                                    class="fas fa-shopping-cart"></i></span><br />
+                            <span class="locationx">Al Quoz 4 <i class="fas fa-map-marker-alt"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1568209568/N29884716A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Apple iPhone 11</span><br />
+                            <span class="tags">$1000</span>
+                            <span class="supermarkxt">Sun City SuperMarket <i
+                                    class="fas fa-shopping-cart"></i></span><br />
+                            <span class="locationx">Al Quoz 3 <i class="fas fa-map-marker-alt"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1568312306/N29884742A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Apple iPhone 11</span><br />
+                            <span class="tags">$1000</span>
+                            <span class="supermarkxt">Gift City SuperMarket <i
+                                    class="fas fa-shopping-cart"></i></span><br />
+                            <span class="locationx">Al Quoz 1 <i class="fas fa-map-marker-alt"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1603040767/N41247165A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Apple iPhone 11</span><br />
+                            <span class="tags">$1000</span>
+                            <span class="supermarkxt">Day by Day SuperMarket <i
+                                    class="fas fa-shopping-cart"></i></span><br />
+                            <span class="locationx">Al Quoz 2 <i class="fas fa-map-marker-alt"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1588253080/N37652800A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Samsung Galaxy A21s 4GB RAM 64GB</span><br />
+                            <span class="tags">$1800</span><br />
+                            <span class="supermarkxt">Day by Day supermarket</span><br />
+                            <span class="locationx">Deira</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1588253080/N37652800A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Samsung Galaxy A21s 4GB RAM 64GB</span><br />
+                            <span class="tags">$1800</span><br />
+                            <span class="supermarkxt">Shaklan supermarket</span><br />
+                            <span class="locationx">Al Quoz 4</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1588253080/N37652800A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Samsung Galaxy A21s 4GB RAM 64GB</span><br />
+                            <span class="tags">$1800</span><br />
+                            <span class="supermarkxt">Shaklan supermarket</span><br />
+                            <span class="locationx">Al Quoz 4</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1588253080/N37652800A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Samsung Galaxy A21s 4GB RAM 64GB</span><br />
+                            <span class="tags">$1800</span><br />
+                            <span class="supermarkxt">Shaklan supermarket</span><br />
+                            <span class="locationx">Al Quoz 4</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1604585589/N41044023A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Apple iPhone 12 Mini 64GB 5G </span><br />
+                            <span class="tags">$1800</span><br />
+                            <span class="supermarkxt">Shaklan supermarket</span><br />
+                            <span class="locationx">Al Quoz 4</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1604585569/N41044008A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Apple iPhone 12 Mini 64GB 5G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1604585569/N41044008A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Apple iPhone 12 Mini 64GB 5G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1604585588/N41044022A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Apple iPhone 12 Mini 64GB 5G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1588585420/N37744186A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Samsung Galaxy Note20 Dual SIM Mystic Bronze 8GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1596445771/N39593512A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Samsung Galaxy Note20 Dual SIM Mystic Bronze 8GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1596445771/N39593512A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Samsung Galaxy Note20 Dual SIM Mystic Bronze 8GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1596445771/N39593512A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Samsung Galaxy Note20 Dual SIM Mystic Bronze 8GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1596445771/N39593512A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Samsung Galaxy A21s 4GB RAM 64GB</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1564984750/N28947251A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">HUAWEI P30 Pro Dual SIM Pearl White 8GB RAM 128G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1564984750/N28947251A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">HUAWEI P30 Pro Dual SIM Pearl White 8GB RAM 128G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1564984750/N28947251A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">HUAWEI P30 Pro Dual SIM Pearl White 8GB RAM 128G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1553837308/N22924821A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">HUAWEI P30 Pro Dual SIM Pearl White 8GB RAM 128G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1557468042/N25468882A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">HUAWEI Y9 Prime Dual SIM Emerald Green 4GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1557468042/N25468882A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">HUAWEI Y9 Prime Dual SIM Emerald Green 4GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1557468042/N25468882A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">HUAWEI Y9 Prime Dual SIM Emerald Green 4GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1557468014/N25468880A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">HUAWEI Y9 Prime Dual SIM Emerald Green 4GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1570165029/N30213939A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Nokia 6.2 Dual SIM Ceramic Black 64GB 4GB RAM 4G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1570165029/N30213939A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Nokia 6.2 Dual SIM Ceramic Black 64GB 4GB RAM 4G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1570165029/N30213939A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Nokia 6.2 Dual SIM Ceramic Black 64GB 4GB RAM 4G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1570165029/N30213939A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Nokia 6.2 Dual SIM Ceramic Black 64GB 4GB RAM 4G</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1569921934/N30213929A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Nokia 7.2 Single SIM Ice 6GB RAM 128GB 4G LTE</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1569921934/N30213929A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Nokia 7.2 Single SIM Ice 6GB RAM 128GB 4G LTE</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1570102316/N30213925A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Nokia 7.2 Single SIM Ice 6GB RAM 128GB 4G LTE</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1569921935/N30213930A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Nokia 7.2 Single SIM Ice 6GB RAM 128GB 4G LTE</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1603954632/N41541091A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Xiaomi Redmi 9 Prime Dual Sim 4GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1603954637/N41541105A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Xiaomi Redmi 9 Prime Dual Sim 4GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1603954632/N41541091A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Xiaomi Redmi 9 Prime Dual Sim 4GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1603954637/N41541105A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Xiaomi Redmi 9 Prime Dual Sim 4GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1591173805/N38483807A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Xiaomi Poco F2 Pro Dual SIM 8GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1591173800/N38483802A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Xiaomi Poco F2 Pro Dual SIM 8GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1591173805/N38483807A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Xiaomi Poco F2 Pro Dual SIM 8GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1591173800/N38483802A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Xiaomi Poco F2 Pro Dual SIM 8GB RAM</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="headingh2">
+            <h2>ELECTRONICS</h2>
+        </div>
+        <div class="electronics" id="ELECTRONICS">
+            <div class="itemimages">
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1597907091/N39843845A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">T500
+                                Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1565108244/N28945149A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">T500
+                                Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1597907091/N39843845A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">T500
+                                Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1565108244/N28945149A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">T500
+                                Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1583218453/N35083624A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">ThinkPad E15 Laptop With 15.6-Inch, Core i7 Processor/8GB RAM/1TB
+                                HDD/2GB AMD Radeon RX640 Graphic Card Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1583218453/N35083624A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">ThinkPad E15 Laptop With 15.6-Inch, Core i7 Processor/8GB RAM/1TB
+                                HDD/2GB AMD Radeon RX640 Graphic Card Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1583218453/N35083624A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">ThinkPad E15 Laptop With 15.6-Inch, Core i7 Processor/8GB RAM/1TB
+                                HDD/2GB AMD Radeon RX640 Graphic Card Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1583218453/N35083624A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">ThinkPad E15 Laptop With 15.6-Inch, Core i7 Processor/8GB RAM/1TB
+                                HDD/2GB AMD Radeon RX640 Graphic Card Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1539771285/N19133392A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">DELL
+                                XPS 13 9370 Convertible 2-In-1 With 13.3 Inch Display, Core i7 Processor/8GB RAM/256GB
+                                SSD/Intel UHD Graphics 620 Silver</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1539771285/N19133392A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">DELL
+                                XPS 13 9370 Convertible 2-In-1 With 13.3 Inch Display, Core i7 Processor/8GB RAM/256GB
+                                SSD/Intel UHD Graphics 620 Silver</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1539771285/N19133392A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">DELL
+                                XPS 13 9370 Convertible 2-In-1 With 13.3 Inch Display, Core i7 Processor/8GB RAM/256GB
+                                SSD/Intel UHD Graphics 620 Silver</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1539771285/N19133392A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">DELL
+                                XPS 13 9370 Convertible 2-In-1 With 13.3 Inch Display, Core i7 Processor/8GB RAM/256GB
+                                SSD/Intel UHD Graphics 620 Silver</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1582391086/N12741645A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">SonyCyberShot DSC-W800 Point And Shoot Camera 20.1MP 5x Zoom
+                                Silver</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1582391086/N12741645A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">SonyCyberShot DSC-W800 Point And Shoot Camera 20.1MP 5x Zoom
+                                Silver</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1582391086/N12741645A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">SonyCyberShot DSC-W800 Point And Shoot Camera 20.1MP 5x Zoom
+                                Silver</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1582391086/N12741645A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">SonyCyberShot DSC-W800 Point And Shoot Camera 20.1MP 5x Zoom
+                                Silver</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1595239367/N11825483A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Sony PlayStation 4 Slim 1TB Console - Jet Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1595239367/N11825483A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Sony PlayStation 4 Slim 1TB Console - Jet Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1595239367/N11825483A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Sony PlayStation 4 Slim 1TB Console - Jet Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-pdp-v1/v1595239367/N11825483A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">Sony PlayStation 4 Slim 1TB Console - Jet Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="imagedisplay">
+                    <a href="#dead">
+                        <img src="https://k.nooncdn.com/t_desktop-thumbnail-v2/v1565108244/N28945149A_1.jpg" alt="">
+                        <div class="align">
+                            <span class="productsit">T500
+                                Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                            <span class="tags">$2800</span><br />
+                            <span class="supermarkxt">Sun city supermarket</span><br />
+                            <span class="locationx">Al quoz 3</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="headingh2">
+                <h2>FASHION</h2>
+            </div>
+            <div class="Fashion" id="FASHION">
+                <div class="itemimages">
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://ounass-prod1.atgcdn.ae/small_light(p=zoom,of=webp,q=65)/pub/media/catalog/product/2/1/213145416_blackmulti_in.jpg?1578231651.6483"
+                                alt="">
+                            <div class="align">
+                                <span class="productsit">T500
+                                    Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                                <span class="tags">$2800</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://ounass-prod1.atgcdn.ae/small_light(p=zoom,of=webp,q=65)/pub/media/catalog/product/2/1/212509629_silmoon_in.jpg?1601732372.1951"
+                                alt="">
+                            <div class="align">
+                                <span class="productsit">T500
+                                    Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                                <span class="tags">$2800</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://ounass-prod1.atgcdn.ae/small_light(p=zoom,of=webp,q=65)/pub/media/catalog/product/2/1/213145399_blksmoke_in.jpg?1576648680.725"
+                                alt="">
+                            <div class="align">
+                                <span class="productsit">T500
+                                    Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                                <span class="tags">$2800</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://ounass-prod1.atgcdn.ae/small_light(p=zoom,of=webp,q=65)/pub/media/catalog/product/2/1/213145399_blksmoke_in.jpg?1576648680.725"
+                                alt="">
+                            <div class="align">
+                                <span class="productsit">Diamond F Metallic Suede & Crystal Trainers</span><br />
+                                <span class="tags">15,700AED</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://ofour.com/wp-content/uploads/2020/03/Cinder-5.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">adidas Yeezy Boost 350 V2 Cinder</span><br />
+                                <span class="tags">1600AED</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://image-cdn.hypb.st/http%3A%2F%2Fhypebeast.com%2Fimage%2F2015%2F11%2Fyeezy-season-look-bak-kanye-west-footwear-feats-12.jpg?q=90&w=1090&cbr=1&fit=max"
+                                alt="">
+                            <div class="align">
+                                <span class="productsit">adidas Yeezy Boost 350 V2 Cinder</span><br />
+                                <span class="tags">1600AED</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://ounass-prod1.atgcdn.ae/small_light(p=zoom,of=webp,q=65)/pub/media/catalog/product/2/1/213145416_blackmulti_in.jpg?1578231651.6483"
+                                alt="">
+                            <div class="align">
+                                <span class="productsit">T500
+                                    Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                                <span class="tags">$2800</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://ounass-prod1.atgcdn.ae/small_light(p=zoom,of=webp,q=65)/pub/media/catalog/product/2/1/213658919_23u_in.jpg?1599689528.1935"
+                                alt="">
+                            <div class="align">
+                                <span class="productsit">T500
+                                    Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                                <span class="tags">$2800</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://ounass-prod1.atgcdn.ae/small_light(p=zoom,of=webp,q=65)/pub/media/catalog/product/2/1/213658919_white_in.jpg?1599689507.4849"
+                                alt="">
+                            <div class="align">
+                                <span class="productsit">T500
+                                    Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                                <span class="tags">$2800</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://ounass-prod1.atgcdn.ae/small_light(p=zoom,of=webp,q=65)/pub/media/catalog/product/2/1/213658919_23u_in.jpg?1599689528.1935"
+                                alt="">
+                            <div class="align">
+                                <span class="productsit">Hawaii/F Glitter Stripe Sneakers in Leather</span><br />
+                                <span class="tags">2,050 AED</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://ounass-prod1.atgcdn.ae/small_light(p=zoom,of=webp,q=65)/pub/media/catalog/product/2/1/213658919_white_in.jpg?1599689507.4849"
+                                alt="">
+                            <div class="align">
+                                <span class="productsit">T500
+                                    Series 5 Smart Watch With Replaceable Strap - 44mm Black</span><br />
+                                <span class="tags">$2800</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1569318815/N30097566V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">FILADisruptor Ii Athletic Shoes White</span><br />
+                                <span class="tags">$2800</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1569318815/N30097566V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">FILADisruptor Ii Athletic Shoes White</span><br />
+                                <span class="tags">$2800</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1569318815/N30097566V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">FILADisruptor Ii Athletic Shoes White</span><br />
+                                <span class="tags">$2800</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1569318815/N30097566V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">FILADisruptor Ii Athletic Shoes White</span><br />
+                                <span class="tags">AED243.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1601380084/N35279217V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">MANGOEle Espadrille Wedge Sandals Gold</span><br />
+                                <span class="tags">AED 249.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1601380084/N35279217V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">MANGOEle Espadrille Wedge Sandals Gold</span><br />
+                                <span class="tags">AED 249.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1601380084/N35279217V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">MANGOEle Espadrille Wedge Sandals Gold</span><br />
+                                <span class="tags">AED 249.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1601380084/N35279217V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">MANGOEle Espadrille Wedge Sandals Gold</span><br />
+                                <span class="tags">AED 249.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1603915299/N40641780V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">Dune LondonAnntonia Mid Heel Pumps NAVY BLUE</span><br />
+                                <span class="tags">AED 349.00 </span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1603915299/N40641780V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">Dune LondonAnntonia Mid Heel Pumps NAVY BLUE</span><br />
+                                <span class="tags">AED 349.00 </span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1603915299/N40641780V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">Dune LondonAnntonia Mid Heel Pumps NAVY BLUE</span><br />
+                                <span class="tags">AED 349.00 </span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1595331956/N39307562V_3.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">Coco JarFaux Fur Bedroom Slippers Black</span><br />
+                                <span class="tags">AED 60.50 </span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1595331956/N39307562V_3.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">Coco JarFaux Fur Bedroom Slippers Black</span><br />
+                                <span class="tags">AED 60.50 </span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1595331956/N39307562V_3.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">Coco JarFaux Fur Bedroom Slippers Black</span><br />
+                                <span class="tags">AED 60.50 </span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605706962/N39783231V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">Tommy JeansChest Logo Print Short Sleeve T-Shirt
+                                    Black</span><br />
+                                <span class="tags">AED168.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605706962/N39783231V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">Tommy JeansChest Logo Print Short Sleeve T-Shirt
+                                    Black</span><br />
+                                <span class="tags">AED168.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605706962/N39783231V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">Tommy JeansChest Logo Print Short Sleeve T-Shirt
+                                    Black</span><br />
+                                <span class="tags">AED168.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1603981425/N40704410V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">NikeSportswear Air Hybrid 2 T-Shirt WHITE</span><br />
+                                <span class="tags">AED 149.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1603981425/N40704410V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">NikeSportswear Air Hybrid 2 T-Shirt WHITE</span><br />
+                                <span class="tags">AED 149.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1603981425/N40704410V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">NikeSportswear Air Hybrid 2 T-Shirt WHITE</span><br />
+                                <span class="tags">AED 149.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1603981088/N40703030V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">JORDANJordan Jumpman Camo Fleece Trousers MEDIUM OLIVE/(TOTAL
+                                    ORANGE)</span><br />
+                                <span class="tags">AED 399.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1603981088/N40703030V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">JORDANJordan Jumpman Camo Fleece Trousers MEDIUM OLIVE/(TOTAL
+                                    ORANGE)</span><br />
+                                <span class="tags">AED 399.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1603981088/N40703030V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">JORDANJordan Jumpman Camo Fleece Trousers MEDIUM OLIVE/(TOTAL
+                                    ORANGE)</span><br />
+                                <span class="tags">AED 399.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605081245/N41226466V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">ArdeneSolid Design Joggers Red</span><br />
+                                <span class="tags">AED140.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605081245/N41226466V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">ArdeneSolid Design Joggers Red</span><br />
+                                <span class="tags">AED140.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605081245/N41226466V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">ArdeneSolid Design Joggers Red</span><br />
+                                <span class="tags">AED140.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605242145/N40345866V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">PUMARebel Graphic T-shirt Puma Black-Nrgy Peach</span><br />
+                                <span class="tags">AED 88.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605242145/N40345866V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">PUMARebel Graphic T-shirt Puma Black-Nrgy Peach</span><br />
+                                <span class="tags">AED 88.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605242145/N40345866V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">PUMARebel Graphic T-shirt Puma Black-Nrgy Peach</span><br />
+                                <span class="tags">AED 88.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1604152574/N40032042V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">trendyol
+                                    Bunny Print Pyjama Pants Fuchsia</span><br />
+                                <span class="tags">AED 88.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1604152574/N40032042V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">trendyol
+                                    Bunny Print Pyjama Pants Fuchsia</span><br />
+                                <span class="tags">AED 88.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1604152574/N40032042V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">trendyol
+                                    Bunny Print Pyjama Pants Fuchsia</span><br />
+                                <span class="tags">AED 88.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602324191/N40212661V_2.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">trendyolLapel Collar Pyjama Set Navy</span><br />
+                                <span class="tags">AED 78.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602324191/N40212661V_2.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">trendyolLapel Collar Pyjama Set Navy</span><br />
+                                <span class="tags">AED 78.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602324191/N40212661V_2.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">trendyolLapel Collar Pyjama Set Navy</span><br />
+                                <span class="tags">AED 78.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1606129301/N39959016V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">High StreetsCrew Neck Short Sleeve T-Shirt Grey</span><br />
+                                <span class="tags">AED168.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1606129301/N39959016V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">High StreetsCrew Neck Short Sleeve T-Shirt Grey</span><br />
+                                <span class="tags">AED168.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="imagedisplay">
+                        <a href="#dead">
+                            <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1606129301/N39959016V_1.jpg" alt="">
+                            <div class="align">
+                                <span class="productsit">High StreetsCrew Neck Short Sleeve T-Shirt Grey</span><br />
+                                <span class="tags">AED168.00</span><br />
+                                <span class="supermarkxt">Sun city supermarket</span><br />
+                                <span class="locationx">Al quoz 3</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="headingh2">
+                    <h2>GROCERY</h2>
+                </div>
+                <div class="grocery" id="GROCERY">
+                    <div class="itemimages">
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602303858/N29006399A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">ArielSemi-Automatic Laundry Detergent Powder
+                                        9kg</span><br />
+                                    <span class="tags">AED65.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602303858/N29006399A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">ArielSemi-Automatic Laundry Detergent Powder
+                                        9kg</span><br />
+                                    <span class="tags">AED65.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602303858/N29006399A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">ArielSemi-Automatic Laundry Detergent Powder
+                                        9kg</span><br />
+                                    <span class="tags">AED65.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1599551412/N13422064A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">BritanniaGood Day Cashew Cookies 720g Pack of
+                                        8</span><br />
+                                    <span class="tags">AED16.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1599551412/N13422064A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">BritanniaGood Day Cashew Cookies 720g Pack of
+                                        8</span><br />
+                                    <span class="tags">AED16.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1599551412/N13422064A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">BritanniaGood Day Cashew Cookies 720g Pack of
+                                        8</span><br />
+                                    <span class="tags">AED16.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1601606990/N34332102A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">LU
+                                        Granola Extra Cookies Chocolate And Caramelized Almonds 184g</span><br />
+                                    <span class="tags">AED22.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1601606990/N34332102A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">LU
+                                        Granola Extra Cookies Chocolate And Caramelized Almonds 184g</span><br />
+                                    <span class="tags">AED22.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1601606990/N34332102A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">LU
+                                        Granola Extra Cookies Chocolate And Caramelized Almonds 184g</span><br />
+                                    <span class="tags">AED22.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1561354631/N13025101A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">CadburyBournvita Chocolate Drink 500g</span><br />
+                                    <span class="tags">AED22.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1561354631/N13025101A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">CadburyBournvita Chocolate Drink 500g</span><br />
+                                    <span class="tags">AED22.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1561354631/N13025101A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">CadburyBournvita Chocolate Drink 500g</span><br />
+                                    <span class="tags">AED22.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602304345/N27256013A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">Red BullEnergy Drink, 250ml</span><br />
+                                    <span class="tags">AED10.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602304345/N27256013A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">Red BullEnergy Drink, 250ml</span><br />
+                                    <span class="tags">AED10.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602304345/N27256013A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">Red BullEnergy Drink, 250ml</span><br />
+                                    <span class="tags">AED10.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602303858/N29006401A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">Tide
+                                        Pack Of 2 Automatic Power Gel Original Scent 1.8L</span><br />
+                                    <span class="tags">AED22.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602303858/N29006401A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">Tide
+                                        Pack Of 2 Automatic Power Gel Original Scent 1.8L</span><br />
+                                    <span class="tags">AED22.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="imagedisplay">
+                            <a href="#dead">
+                                <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1602303858/N29006401A_1.jpg" alt="">
+                                <div class="align">
+                                    <span class="productsit">Tide
+                                        Pack Of 2 Automatic Power Gel Original Scent 1.8L</span><br />
+                                    <span class="tags">AED22.00</span><br />
+                                    <span class="supermarkxt">Sun city supermarket</span><br />
+                                    <span class="locationx">Al quoz 3</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="headingh2">
+                        <h2>SPORTS</h2>
+                    </div>
+                    <div class="SPORTS" id="SPORTS">
+                        <div class="itemimages">
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605899179/N30983388A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">SkyLandTubeless Electric Scooter EM-1603-Black
+                                            110x15.5x52centimeter</span><br />
+                                        <span class="tags">AED800.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605899179/N30983388A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">SkyLandTubeless Electric Scooter EM-1603-Black
+                                            110x15.5x52centimeter</span><br />
+                                        <span class="tags">AED800.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605899179/N30983388A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">SkyLandTubeless Electric Scooter EM-1603-Black
+                                            110x15.5x52centimeter</span><br />
+                                        <span class="tags">AED800.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1534232436/N16273327A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">Body SculptureAb Wheel</span><br />
+                                        <span class="tags">AED22.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1534232436/N16273327A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">Body SculptureAb Wheel</span><br />
+                                        <span class="tags">AED22.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1534232436/N16273327A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">Body SculptureAb Wheel</span><br />
+                                        <span class="tags">AED22.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605213580/N41702102A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">Asquare
+                                            Skating Shoes M ( 35-38)cm</span><br />
+                                        <span class="tags">AED160.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605213580/N41702102A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">Asquare
+                                            Skating Shoes M ( 35-38)cm</span><br />
+                                        <span class="tags">AED160.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1605213580/N41702102A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">Asquare
+                                            Skating Shoes M ( 35-38)cm</span><br />
+                                        <span class="tags">AED160.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1520609365/N13431355A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">MOGOOEpsilon Alloy Bike 26-Inch 26inch</span><br />
+                                        <span class="tags">AED1000.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1520609365/N13431355A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">MOGOOEpsilon Alloy Bike 26-Inch 26inch</span><br />
+                                        <span class="tags">AED1000.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="imagedisplay">
+                                <a href="#dead">
+                                    <img src="https://a.nooncdn.com/t_desktop-pdp-v1/v1520609365/N13431355A_1.jpg"
+                                        alt="">
+                                    <div class="align">
+                                        <span class="productsit">MOGOOEpsilon Alloy Bike 26-Inch 26inch</span><br />
+                                        <span class="tags">AED1000.00</span><br />
+                                        <span class="supermarkxt">Sun city supermarket</span><br />
+                                        <span class="locationx">Al quoz 3</span>
+                                    </div>
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div id="notfound">
+                            <h1>No results matched your search...</h1>
+                        </div>
+    </section>
+
+    <footer>
+
+        <div class="footer">
+            <div class="menus">
+                <ul>
+                    <li>
+                        <h3><a href="#HOMe">Home</a></h3>
+                    </li>
+                    <li><a href="#MOBILES">Mobiles & Gadgets</a></li>
+                    <li><a href="#FASHION">Fashion</a> </li>
+                    <li><a href="#ELECTRONICS">Electronics</a> </li>
+                    <li> <a href="#GROCERY"> Grocery</a></li <li><a href="#SPORTS">SPORTS</a></li>
+                </ul>
+
+            </div>
+            <div class="aboutus">
+                <ul>
+                    <li>
+                        <h3><a href="#">About Us</a></h3>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="policies">
+                <ul>
+                    <li>
+                        <h3><a href="#">Policies</a></h3>
+                    </li>
+                    <li><a href="#">Terms & Conditions</a> </li>
+                    <li><a href="#">Website Accessibility</a> </li>
+                    <li><a href="#">Privacy Policy</a> </li>
+                </ul>
+
+            </div>
+
+            <div class="contacticons">
+                <h3>Connect With Us</h3>
+                <a href="#"> <img
+                        src="https://cdn2.iconfinder.com/data/icons/social-media-applications/64/social_media_applications_1-facebook-128.png"
+                        alt=""> </a>
+                <a href="#"> <img src="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Instagram-128.png"
+                        alt=""> </a>
+                <a href="#"> <img
+                        src="https://cdn2.iconfinder.com/data/icons/social-media-applications/64/social_media_applications_6-twitter-128.png"
+                        alt=""> </a>
+                <a href="#"> <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-linkedin-128.png"
+                        alt=""> </a>
+                <a href="#"><img
+                        src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/64/social_media_logo_github-128.png"
+                        alt=""> </a>
+            </div>
+        </div>
+        <div class="arr">
+            <span>
+                © 2020 UpDiscount. All Rights Reserved.
+            </span>
+        </div>
+    </footer>
+    <script src="scripts.js">
+    </script>
+</body>
+
+</html>
