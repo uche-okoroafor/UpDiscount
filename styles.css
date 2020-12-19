@@ -260,6 +260,11 @@ nav > .menuicon {
   margin-left: auto;
   margin-right: 20px;
 }
+@media only screen and (max-width: 767px) {
+.menuicon {
+  z-index:1000;
+  }
+}
 
 .bar1,
 .bar2,
@@ -296,14 +301,14 @@ nav > .menuicon {
 }
 @media only screen and (max-width: 767px) {
 .closemenubar {
-   top: 60px;
+   top: 0;
   }
 }
 
 .mobimenu {
   position: absolute;
   right: 0;
-  top: 70px;
+  top: 0px;
   width: 0;
   opacity: 0;
   height: 100vh;
