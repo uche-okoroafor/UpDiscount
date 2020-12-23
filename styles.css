@@ -547,7 +547,7 @@ form .btn button:hover {
 }
 .home .caption h1 {
   font-size: 42px;
-  color: inherit;
+  color:#222222;;
   margin: 0;
 }
 .home .slide.active .caption h1 {
