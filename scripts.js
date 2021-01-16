@@ -5,8 +5,8 @@ window.onscroll = function () {
 
 function scrollFunction() {
   if (
-    document.body.scrollTop > 175 ||
-    document.documentElement.scrollTop > 175
+    document.body.scrollTop > 165 ||
+    document.documentElement.scrollTop > 165
   ) {
     document.getElementById("scrollinbar").style.transition = " height .5s";
     document.getElementById("scrollinbar").style.borderBottom =
@@ -20,7 +20,7 @@ function scrollFunction() {
         document.getElementById("scrollinbar").style.height = "50px";
       } else {
         {
-          document.getElementById("scrollinbar").style.height ="70px";
+          document.getElementById("scrollinbar").style.height = "70px";
         }
       }
     }
@@ -150,72 +150,103 @@ let timer = setInterval(autoPlay, 6000);
 
 //for search return
 
-var collection = document.getElementsByClassName("tags");
+var tags = document.getElementsByClassName("tags");
 var locations = document.getElementsByClassName("locationx");
-var imagedisplay = document.querySelectorAll(".imagedisplay");
+var imageDisplay = document.querySelectorAll(".imagedisplay");
 var products = document.getElementsByClassName("productsit");
-var supermarkets = document.getElementsByClassName("supermarkxt");
+var superMarkets = document.getElementsByClassName("supermarkxt");
 var hotsales = document.querySelector("#hotsales");
 var headingh2 = document.querySelectorAll(".headingh2");
+var hotsalesDisplay = document.getElementsByClassName("hotsalesdisplay");
+// for(let i=0;i<133;i++){
+// //console.log(supermarkets[i].innerHTML,i);
+// console.log(products[i].innerHTML,i);
+// }
 
 document.querySelector("#btnsearchopen").addEventListener("click", showmodel);
 
-var inputcheck1 = products[i].innerHTML.toLowerCase();
+// var inputcheck1 = products[i].innerHTML.toLowerCase();
 
 function showsearch() {
-  var noresult = 0;
+  var notFound = imageDisplay.length;
   var itemvalue = document.querySelector("#item").value;
-  var supermavalue = document.querySelector("#supermarket").value;
+  var supermaValue = document.querySelector("#supermarket").value;
   var locationvalue = document.querySelector("#locationxc").value;
 
-  for (var n = 0; n < imagedisplay.length; n++) {
-    imagedisplay[n].style.display = "none";
+
+  for (let n = 0; n < imageDisplay.length; n++) {
+    imageDisplay[n].style.display = "none";
+ 
   }
 
   for (let i = 0; i < headingh2.length; i++) {
     headingh2[i].style.display = "none";
   }
 
+  // for (let i = 0; i <  hotsalesDisplay.length; i++) {
+  //   hotsalesDisplay.style.display = "none";
+  // }
+
+
+
   document.getElementsByClassName("slidebody")[0].style.display = "none";
-  hotsales.style.display = "none";
+
 
   if (
     itemvalue.length > 0 &&
-    supermavalue.length > 0 &&
+    supermaValue.length > 0 &&
     locationvalue.length > 0
   ) {
-    for (var i = 12; i < imagedisplay.length; i++) {
+    for (var i = 12; i < imageDisplay.length; i++) {
       if (
         products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase() &&
-        supermarkets[i].innerHTML.toLowerCase() ===
-          supermavalue.toLowerCase() &&
+        superMarkets[i].innerHTML.toLowerCase() ===
+          supermaValue.toLowerCase() &&
         locations[i].innerHTML.toLowerCase() === locationvalue.toLowerCase()
       ) {
-        imagedisplay[i - 12].style.display = "block";
+        imageDisplay[i - 12].style.display = "block";
+     
+
       } else {
-        noresult++;
-        if (noresult === imagedisplay.length - 1) {
+console.log(notFound,imageDisplay.length)
+
+        if (notFound === imageDisplay.length) {
           document.getElementById("notfound").style.display = "block";
         }
       }
     }
-  } else if (itemvalue.length > 0 && supermavalue.length > 0) {
-    for (var i = 12; i < imagedisplay.length; i++) {
+  } else if (itemvalue.length > 0 && supermaValue.length > 0) {
+    for (var i = 12; i < imageDisplay.length; i++) {
       if (
         products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase() &&
-        supermarkets[i].innerHTML.toLowerCase() === supermavalue.toLowerCase()
+        superMarkets[i].innerHTML.toLowerCase() === supermaValue.toLowerCase()
       ) {
-        imagedisplay[i - 12].style.display = "block";
-      }
-    }
-  } else {
-    for (var i = 12; i < imagedisplay.length; i++) {
-      if (products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase()) {
-        imagedisplay[i - 12].style.display = "block";
-      }
-    }
-  }
 
+        imageDisplay[i - 12].style.display = "block";
+          notFound = notFound-1;
+      }
+      else{
+
+        if (notFound === imageDisplay.length) {
+          document.getElementById("notfound").style.display = "block";
+      }
+    }
+  } 
+
+}
+else {
+    for (var i = 12; i < imageDisplay.length; i++) {
+      if (products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase()
+      ||superMarkets[i].innerHTML.toLowerCase() === supermaValue.toLowerCase()
+      || locations[i].innerHTML.toLowerCase() === locationvalue.toLowerCase()) {
+        imageDisplay[i - 12].style.display = "block";
+         notFound = notFound-1;
+      }
+  }  
+  }
+ if(notFound === imageDisplay.length) {
+ document.getElementById("notfound").style.display = "block";
+ }
   modal.style.display = "none";
 }
 
