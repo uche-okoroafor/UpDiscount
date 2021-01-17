@@ -158,20 +158,15 @@ var superMarkets = document.getElementsByClassName("supermarkxt");
 var hotsales = document.querySelector("#hotsales");
 var headingh2 = document.querySelectorAll(".headingh2");
 var hotsalesDisplay = document.getElementsByClassName("hotsalesdisplay");
-// for(let i=0;i<133;i++){
-// //console.log(supermarkets[i].innerHTML,i);
-// console.log(products[i].innerHTML,i);
-// }
+ var notFound = imageDisplay.length;
 
 document.querySelector("#btnsearchopen").addEventListener("click", showmodel);
 
-// var inputcheck1 = products[i].innerHTML.toLowerCase();
 
 function showsearch() {
-  var notFound = imageDisplay.length;
   var itemvalue = document.querySelector("#item").value;
   var supermaValue = document.querySelector("#supermarket").value;
-  var locationvalue = document.querySelector("#locationxc").value;
+  var locationValue = document.querySelector("#locationxc").value;
 
 
   for (let n = 0; n < imageDisplay.length; n++) {
@@ -195,14 +190,14 @@ function showsearch() {
   if (
     itemvalue.length > 0 &&
     supermaValue.length > 0 &&
-    locationvalue.length > 0
+    locationValue.length > 0
   ) {
     for (var i = 12; i < imageDisplay.length; i++) {
       if (
         products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase() &&
         superMarkets[i].innerHTML.toLowerCase() ===
           supermaValue.toLowerCase() &&
-        locations[i].innerHTML.toLowerCase() === locationvalue.toLowerCase()
+        locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase()
       ) {
         imageDisplay[i - 12].style.display = "block";
      
@@ -215,7 +210,8 @@ console.log(notFound,imageDisplay.length)
         }
       }
     }
-  } else if (itemvalue.length > 0 && supermaValue.length > 0) {
+  } 
+else if (itemvalue.length > 0 && supermaValue.length > 0) {
     for (var i = 12; i < imageDisplay.length; i++) {
       if (
         products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase() &&
@@ -234,11 +230,52 @@ console.log(notFound,imageDisplay.length)
   } 
 
 }
+
+else if (itemvalue.length > 0 && locationValue.length > 0) {
+    for (var i = 12; i < imageDisplay.length; i++) {
+      if (
+        products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase() &&
+        locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase()
+      ) {
+
+        imageDisplay[i - 12].style.display = "block";
+          notFound = notFound-1;
+      }
+      else{
+
+        if (notFound === imageDisplay.length) {
+          document.getElementById("notfound").style.display = "block";
+      }
+    }
+  } 
+
+}
+
+else if (locationValue.length > 0 && supermaValue.length > 0) {
+    for (var i = 12; i < imageDisplay.length; i++) {
+      if (
+        locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase() &&
+        superMarkets[i].innerHTML.toLowerCase() === supermaValue.toLowerCase()
+      ) {
+
+        imageDisplay[i - 12].style.display = "block";
+          notFound = notFound-1;
+      }
+      else{
+
+        if (notFound === imageDisplay.length) {
+          document.getElementById("notfound").style.display = "block";
+      }
+    }
+  } 
+
+}
+
 else {
     for (var i = 12; i < imageDisplay.length; i++) {
       if (products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase()
       ||superMarkets[i].innerHTML.toLowerCase() === supermaValue.toLowerCase()
-      || locations[i].innerHTML.toLowerCase() === locationvalue.toLowerCase()) {
+      || locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase()) {
         imageDisplay[i - 12].style.display = "block";
          notFound = notFound-1;
       }
