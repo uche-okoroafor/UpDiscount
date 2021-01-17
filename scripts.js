@@ -284,6 +284,9 @@ else {
  if(notFound === imageDisplay.length) {
  document.getElementById("notfound").style.display = "block";
  }
+  else{
+  document.getElementById("notfound").style.display = "none";
+  }
   modal.style.display = "none";
 }
 
