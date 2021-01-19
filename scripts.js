@@ -158,13 +158,15 @@ var superMarkets = document.getElementsByClassName("supermarkxt");
 var hotsales = document.querySelector("#hotsales");
 var headingh2 = document.querySelectorAll(".headingh2");
 var hotsalesDisplay = document.getElementsByClassName("hotsalesdisplay");
- var notFound = imageDisplay.length;
+var notFound = imageDisplay.length;
+var searched = document.querySelector("#searched");
+var searchResult = document.querySelector("#searchresult");
 
 document.querySelector("#btnsearchopen").addEventListener("click", showmodel);
 
 
 function showsearch() {
-  var itemvalue = document.querySelector("#item").value;
+  var itemValue = document.querySelector("#item").value;
   var supermaValue = document.querySelector("#supermarket").value;
   var locationValue = document.querySelector("#locationxc").value;
 
@@ -188,19 +190,20 @@ function showsearch() {
 
 
   if (
-    itemvalue.length > 0 &&
+    itemValue.length > 0 &&
     supermaValue.length > 0 &&
     locationValue.length > 0
   ) {
     for (var i = 12; i < imageDisplay.length; i++) {
       if (
-        products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase() &&
+        products[i].innerHTML.toLowerCase() === itemValue.toLowerCase() &&
         superMarkets[i].innerHTML.toLowerCase() ===
           supermaValue.toLowerCase() &&
         locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase()
       ) {
         imageDisplay[i - 12].style.display = "block";
-     
+      searchResult.style.display = "block";
+     searched.innerHTML='Search Result For :'+ '&nbsp &nbsp &nbsp &nbsp &nbsp'+ itemValue;
 
       } else {
 console.log(notFound,imageDisplay.length)
@@ -211,13 +214,14 @@ console.log(notFound,imageDisplay.length)
       }
     }
   } 
-else if (itemvalue.length > 0 && supermaValue.length > 0) {
+else if (itemValue.length > 0 && supermaValue.length > 0) {
     for (var i = 12; i < imageDisplay.length; i++) {
       if (
-        products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase() &&
+        products[i].innerHTML.toLowerCase() === itemValue.toLowerCase() &&
         superMarkets[i].innerHTML.toLowerCase() === supermaValue.toLowerCase()
       ) {
-
+      searchResult.style.display = "block";
+     searched.innerHTML='Search Result For'+''+ itemValue;
         imageDisplay[i - 12].style.display = "block";
           notFound = notFound-1;
       }
@@ -231,13 +235,14 @@ else if (itemvalue.length > 0 && supermaValue.length > 0) {
 
 }
 
-else if (itemvalue.length > 0 && locationValue.length > 0) {
+else if (itemValue.length > 0 && locationValue.length > 0) {
     for (var i = 12; i < imageDisplay.length; i++) {
       if (
-        products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase() &&
+        products[i].innerHTML.toLowerCase() === itemValue.toLowerCase() &&
         locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase()
       ) {
-
+            searchResult.style.display = "block";
+          searched.innerHTML='Search Result For'+''+ itemValue;
         imageDisplay[i - 12].style.display = "block";
           notFound = notFound-1;
       }
@@ -257,7 +262,8 @@ else if (locationValue.length > 0 && supermaValue.length > 0) {
         locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase() &&
         superMarkets[i].innerHTML.toLowerCase() === supermaValue.toLowerCase()
       ) {
-
+      searchResult.style.display = "block";
+     searched.innerHTML='Search Result For'+''+ supermaValue;
         imageDisplay[i - 12].style.display = "block";
           notFound = notFound-1;
       }
@@ -273,20 +279,21 @@ else if (locationValue.length > 0 && supermaValue.length > 0) {
 
 else {
     for (var i = 12; i < imageDisplay.length; i++) {
-      if (products[i].innerHTML.toLowerCase() === itemvalue.toLowerCase()
+      if (products[i].innerHTML.toLowerCase() === itemValue.toLowerCase()
       ||superMarkets[i].innerHTML.toLowerCase() === supermaValue.toLowerCase()
       || locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase()) {
+
+        searchResult.style.display = "block";
+        searched.innerHTML='Search Result For'+''+ itemValue || supermaValue || locationValue;
         imageDisplay[i - 12].style.display = "block";
          notFound = notFound-1;
+console.log(itemValue);
       }
   }  
   }
  if(notFound === imageDisplay.length) {
  document.getElementById("notfound").style.display = "block";
  }
-  else{
-  document.getElementById("notfound").style.display = "none";
-  }
   modal.style.display = "none";
 }
 
