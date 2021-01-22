@@ -165,11 +165,11 @@ var searchResult = document.querySelector("#searchresult");
 document.querySelector("#btnsearchopen").addEventListener("click", showmodel);
 
 
-function showsearch() {
-  var itemValue = document.querySelector("#item").value;
-  var supermaValue = document.querySelector("#supermarket").value;
-  var locationValue = document.querySelector("#locationxc").value;
 
+function showsearch() {
+  var itemValue = document.querySelector("#item").value.replace(/\s/g, '').toLowerCase();
+  var supermaValue = document.querySelector("#supermarket").value.replace(/\s/g, '').toLowerCase();
+  var locationValue = document.querySelector("#locationxc").value.replace(/\s/g, '').toLowerCase();
 
   for (let n = 0; n < imageDisplay.length; n++) {
     imageDisplay[n].style.display = "none";
@@ -196,13 +196,15 @@ function showsearch() {
   ) {
     for (var i = 12; i < imageDisplay.length; i++) {
       if (
-        products[i].innerHTML.toLowerCase() === itemValue.toLowerCase() &&
-        superMarkets[i].innerHTML.toLowerCase() ===
-          supermaValue.toLowerCase() &&
-        locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase()
+        products[i].innerHTML.toLowerCase().replace(/\s/g, '') === itemValue &&
+        superMarkets[i].innerHTML.toLowerCase().replace(/\s/g, '') ===
+          supermaValue &&
+        locations[i].innerHTML.toLowerCase().replace(/\s/g, '') === locationValue
       ) {
         imageDisplay[i - 12].style.display = "block";
-      searchResult.style.display = "block";
+      searchResult.style.visibility= 'visible';
+ document.getElementById("notfound").style.display = "none";
+      
      searched.innerHTML='Search Result For :'+ '&nbsp &nbsp &nbsp &nbsp &nbsp'+ itemValue;
 
       } else {
@@ -217,10 +219,11 @@ console.log(notFound,imageDisplay.length)
 else if (itemValue.length > 0 && supermaValue.length > 0) {
     for (var i = 12; i < imageDisplay.length; i++) {
       if (
-        products[i].innerHTML.toLowerCase() === itemValue.toLowerCase() &&
-        superMarkets[i].innerHTML.toLowerCase() === supermaValue.toLowerCase()
+        products[i].innerHTML.toLowerCase().replace(/\s/g, '') === itemValue &&
+        superMarkets[i].innerHTML.toLowerCase().replace(/\s/g, '') === supermaValue
       ) {
-      searchResult.style.display = "block";
+      searchResult.style.visibility= 'visible';
+ document.getElementById("notfound").style.display = "none";
      searched.innerHTML='Search Result For'+''+ itemValue;
         imageDisplay[i - 12].style.display = "block";
           notFound = notFound-1;
@@ -238,10 +241,11 @@ else if (itemValue.length > 0 && supermaValue.length > 0) {
 else if (itemValue.length > 0 && locationValue.length > 0) {
     for (var i = 12; i < imageDisplay.length; i++) {
       if (
-        products[i].innerHTML.toLowerCase() === itemValue.toLowerCase() &&
-        locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase()
+        products[i].innerHTML.toLowerCase().replace(/\s/g, '') === itemValue &&
+        locations[i].innerHTML.toLowerCase().replace(/\s/g, '') === locationValue
       ) {
-            searchResult.style.display = "block";
+            searchResult.style.visibility= 'visible';
+ document.getElementById("notfound").style.display = "none";
           searched.innerHTML='Search Result For'+''+ itemValue;
         imageDisplay[i - 12].style.display = "block";
           notFound = notFound-1;
@@ -259,10 +263,11 @@ else if (itemValue.length > 0 && locationValue.length > 0) {
 else if (locationValue.length > 0 && supermaValue.length > 0) {
     for (var i = 12; i < imageDisplay.length; i++) {
       if (
-        locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase() &&
-        superMarkets[i].innerHTML.toLowerCase() === supermaValue.toLowerCase()
+        locations[i].innerHTML.toLowerCase().replace(/\s/g, '') === locationValue &&
+        superMarkets[i].innerHTML.toLowerCase().replace(/\s/g, '') === supermaValue
       ) {
-      searchResult.style.display = "block";
+      searchResult.style.visibility= 'visible';
+ document.getElementById("notfound").style.display = "none";
      searched.innerHTML='Search Result For'+''+ supermaValue;
         imageDisplay[i - 12].style.display = "block";
           notFound = notFound-1;
@@ -279,11 +284,12 @@ else if (locationValue.length > 0 && supermaValue.length > 0) {
 
 else {
     for (var i = 12; i < imageDisplay.length; i++) {
-      if (products[i].innerHTML.toLowerCase() === itemValue.toLowerCase()
-      ||superMarkets[i].innerHTML.toLowerCase() === supermaValue.toLowerCase()
-      || locations[i].innerHTML.toLowerCase() === locationValue.toLowerCase()) {
+      if (products[i].innerHTML.toLowerCase().replace(/\s/g, '') === itemValue
+      ||superMarkets[i].innerHTML.toLowerCase().replace(/\s/g, '') === supermaValue
+      || locations[i].innerHTML.toLowerCase().replace(/\s/g, '') === locationValue) {
 
-        searchResult.style.display = "block";
+        searchResult.style.visibility= 'visible';
+ document.getElementById("notfound").style.display = "none";
         searched.innerHTML='Search Result For'+''+ itemValue || supermaValue || locationValue;
         imageDisplay[i - 12].style.display = "block";
          notFound = notFound-1;
