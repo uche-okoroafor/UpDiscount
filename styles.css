@@ -691,8 +691,52 @@ padding-top: 60px;
 }
 
 #searchresult{
-visibility: hidden;
+display: block;
+padding-top: 100px;
+margin-left: 30px;
+margin-bottom: 0;
+}
 
+#pre-search-display{
+display: none;
+
+}
+
+.pre-display{
+position: fixed;
+height: 100vh;
+width: 100%;
+ filter: blur(5px);
+  -webkit-filter: blur(5px);
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+z-index: 500;
+left:0;
+ background-image:url('/images/blurbg.png'); 
+
+}
+
+
+.pre-display-text{ 
+vertical-align: middle;
+z-index: 502;
+ position:fixed;
+  top: 49%;
+  left: 50%;
+height: 50%;
+ color: white;
+  font-weight: bold;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0, 0.4);
+  transform: translate(-50%, -50%);
+  width: 40%;
+  padding: 20px;
+  text-align: center;
+}
+ 
+.dots{
+visibility: hidden;
 }
 
 .hotsalesdisplay {
