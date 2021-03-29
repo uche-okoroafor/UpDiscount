@@ -792,6 +792,7 @@ flex-flow:row wrap;
 
 .imagedisplay .align {
   text-align: center;
+word-wrap:unset;
 }
 
 .imagedisplay {
@@ -805,7 +806,7 @@ flex-flow:row wrap;
   background: var(--main-green);
   color: var(--main-white);
   font-size: 13px;
-
+overflow-y: hidden;
 }
 
 .imagedisplay .tags:hover {
