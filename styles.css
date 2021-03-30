@@ -900,3 +900,9 @@ footer {
   background-color: white;
   white-space: nowrap;
 }
+
+.frame{
+max-height: 400px;
+
+
+}
