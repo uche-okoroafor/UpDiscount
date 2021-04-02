@@ -16,7 +16,7 @@ function handleScroll() {
 
         function myFunc(x) {
             if (x.matches) {
-                // If media query matches
+     
                 document.getElementById("scrollinbar").style.height = "50px";
             } else {
                 {
@@ -35,23 +35,18 @@ function handleScroll() {
     }
 }
 
-// Get the modal
 var modal = document.getElementById("myModal");
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal
 function showmodel() {
     modal.style.display = "block";
     closebar();
 }
 
-// When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
 };
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
@@ -148,7 +143,7 @@ function autoPlay() {
 
 let timer = setInterval(autoPlay, 6000);
 
-//for search return
+//Search
 
 var tags = document.getElementsByClassName("tags");
 var locations = document.getElementsByClassName("locationx");
@@ -158,7 +153,6 @@ var superMarkets = document.getElementsByClassName("supermarkxt");
 var hotsales = document.querySelector("#hotsales");
 var headingh2 = document.querySelectorAll(".headingh2");
 var hotsalesDisplay = document.getElementsByClassName("hotsalesdisplay");
-var notFound = imageDisplay.length;
 var searched = document.querySelector("#searched");
 var searchClick = document.querySelector("#searchClick");
 var searchResult = document.querySelector("#searchresult");
@@ -168,10 +162,11 @@ document.querySelector("#btnsearchopen").addEventListener("click", showmodel);
 
 
 function showsearch() {
+
     var itemValue = document.querySelector("#item").value.replace(/\s/g, '').toLowerCase();
     var supermarketValue = document.querySelector("#supermarket").value.replace(/\s/g, '').toLowerCase();
     var locationValue = document.querySelector("#locationxc").value.replace(/\s/g, '').toLowerCase();
-
+var notFound = imageDisplay.length - 12;
     var itemInput = document.querySelector("#item").value
     var supermarketInput = document.querySelector("#supermarket").value
     var locationInput = document.querySelector("#locationxc").value
@@ -202,11 +197,12 @@ function showsearch() {
                 document.getElementById("notfound").style.display = "none";
 
                 searched.innerHTML = 'Search Result For :' + '&nbsp' + itemInput;
+            
+            
 
             } else {
-                console.log(notFound, imageDisplay.length)
 
-                if (notFound === imageDisplay.length) {
+                if (notFound === imageDisplay.length-12) {
                     document.getElementById("notfound").style.display = "block";
                 }
             }
@@ -224,7 +220,7 @@ function showsearch() {
                 notFound = notFound - 1;
             } else {
 
-                if (notFound === imageDisplay.length) {
+                if (notFound === imageDisplay.length - 12) {
                     document.getElementById("notfound").style.display = "block";
                 }
             }
@@ -243,7 +239,7 @@ function showsearch() {
                 notFound = notFound - 1;
             } else {
 
-                if (notFound === imageDisplay.length) {
+                if (notFound === imageDisplay.length - 12) {
                     document.getElementById("notfound").style.display = "block";
                 }
             }
@@ -262,7 +258,7 @@ function showsearch() {
                 notFound = notFound - 1;
             } else {
 
-                if (notFound === imageDisplay.length) {
+                if (notFound === imageDisplay.length - 12) {
                     document.getElementById("notfound").style.display = "block";
                 }
             }
@@ -278,12 +274,12 @@ function showsearch() {
                 document.getElementById("notfound").style.display = "none";
                 searched.innerHTML = 'Search Result For' + '&nbsp' + itemInput || supermarketInput || locationInput;
                 imageDisplay[i - 12].style.display = "block";
-                notFound = notFound - 1;
-                console.log(itemValue);
+                 notFound--
             }
         }
     }
-    if (notFound === imageDisplay.length) {
+
+    if (notFound === imageDisplay.length - 12) {
         document.getElementById("notfound").style.display = "block";
     }
 displayDots();
